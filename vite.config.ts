@@ -22,12 +22,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-query': ['@tanstack/react-query']
-        },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name?.endsWith('.css')) {
-            return 'assets/[name]-[hash][extname]';
-          }
-          return 'assets/[name]-[hash][extname]';
         }
       }
     }

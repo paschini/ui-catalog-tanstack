@@ -1,10 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { createServerFn, useRouter } from '@tanstack/react-start';
+import { createServerFn } from '@tanstack/react-start';
 import { GlobalContext, initialValue } from '../globalContext';
 import { useReducer } from 'react';
 import { globalReducer } from '../globalReducer';
 import Header from '../components/Header';
 import Main from '../components/Main';
+import RouteWrapper from '../components/RouteWrapepr';
 import styles from './index.module.css';
 import { Data, DataSchema } from '../components/DeviceDataTypes';
 
@@ -21,18 +22,17 @@ export const Route = createFileRoute('/')({
 });
 
 function Home() {
-  // const router = useRouter();
   const data: Data = Route.useLoaderData();
-
   const [globalState, globalDispatch] = useReducer(globalReducer, initialValue.globalState);
 
   return (
-    <div className={styles.layout}>
-      <GlobalContext value={{ globalState, globalDispatch }}>
-        <Header />
-        {/*<Menu />*/}
-        <Main data={data} />
-      </GlobalContext>
-    </div>
+    <RouteWrapper styleModules={[styles]}>
+      <div className={styles.layout}>
+        <GlobalContext value={{ globalState, globalDispatch }}>
+          <Header />
+          <Main data={data} />
+        </GlobalContext>
+      </div>
+    </RouteWrapper>
   );
 }
