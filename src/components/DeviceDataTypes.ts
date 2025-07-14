@@ -161,37 +161,6 @@ const DeviceSchema = z.object({
   unifi: UniFiSchema.optional(),
   videos: z.any()
 });
-// .refine(
-//   (data) => {
-//     // Validera att BTLE och UISP är konsistenta
-//     if (data.btle && data.uisp?.bleServices) {
-//       const hasFactoryDefault = data.btle.factoryDefault !== undefined;
-//       const hasUserConfigured = data.btle.userConfigured !== undefined;
-//
-//       const uispHasFactoryDefault = data.uisp.bleServices.factoryDefault !== undefined;
-//       const uispHasUserConfigured = data.uisp.bleServices.userConfigured !== undefined;
-//
-//       // Kontrollera att de matchar
-//       if (hasFactoryDefault && !uispHasFactoryDefault) {
-//         return false;
-//       }
-//       if (hasUserConfigured && !uispHasUserConfigured) {
-//         return false;
-//       }
-//       if (uispHasFactoryDefault && !hasFactoryDefault) {
-//         return false;
-//       }
-//       if (uispHasUserConfigured && !hasUserConfigured) {
-//         return false;
-//       }
-//     }
-//
-//     return true;
-//   },
-//   {
-//     message: 'BTLE and UISP bleServices configuration must be consistent'
-//   }
-// );
 
 export const DataSchema = z.object({
   devices: z.array(DeviceSchema),

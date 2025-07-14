@@ -16,11 +16,7 @@ const ImageLoader = (props: ImageLoaderProps) => {
   const { src, alt, className, width, height } = props;
   const { globalDispatch } = useContext(GlobalContext);
 
-  const {
-    data = src,
-    isLoading,
-    error
-  } = useQuery({
+  const { isLoading, error } = useQuery({
     queryKey: ['image', src],
     queryFn: async () => {
       // Preload image
@@ -30,8 +26,7 @@ const ImageLoader = (props: ImageLoaderProps) => {
         img.onerror = reject;
         img.src = src;
       });
-    },
-    staleTime: 1000 * 60 * 5 // 5 minuter
+    }
   });
 
   if (isLoading) return <Img width={'33'} height={'19'} />;

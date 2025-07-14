@@ -6,9 +6,12 @@ import './globals.css';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5, // 5 minuter
+      staleTime: 1000 * 60 * 60 * 24, // 24 timmar för bilder
+      gcTime: 1000 * 60 * 60 * 24,
       retry: 1,
-      refetchOnWindowFocus: false
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      refetchOnMount: false
     }
   }
 });
@@ -22,13 +25,6 @@ export const Route = createRootRoute({
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
-      }
-    ],
-    links: [
-      {
-        rel: 'preload',
-        href: '/src/globals.css',
-        as: 'style'
       }
     ]
   }),

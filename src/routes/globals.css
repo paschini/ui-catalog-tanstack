@@ -1,16 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  font-family: Lato, Roboto, Helvetica, sans-serif;
-  font-size: 14px;
-}
-
 :root {
-
-
   --color-black-45: rgba(0, 0, 0, 0.45);
   --color-gray-4: #bdbdbd;
   --color-natural: #fff;
@@ -34,4 +22,16 @@ body {
   --padding-xlarge: 40px;
 
   --sizes-line-height: 36px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Lato, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  opacity: var(0);
+  transition: opacity 0.15s ease-in-out;
 }
