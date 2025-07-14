@@ -1,45 +1,38 @@
-import * as fs from 'node:fs';
-import { createFileRoute, useRouter } from '@tanstack/react-router';
-import { createServerFn } from '@tanstack/react-start';
+import { createFileRoute } from '@tanstack/react-router';
+import { createServerFn, useRouter } from '@tanstack/react-start';
+import { GlobalContext, initialValue } from '../globalContext';
+import { useReducer } from 'react';
+import { globalReducer } from '../globalReducer';
+import Header from '../components/Header';
+import Main from '../components/Main';
+import styles from './index.module.css';
+import { Data, DataSchema } from '../components/DeviceDataTypes';
 
-const filePath = 'count.txt';
+const getData = createServerFn({ method: 'GET' }).handler(async (): Promise<Data> => {
+  const res = await fetch('https://static.ui.com/fingerprint/ui/public.json');
+  const rawData = await res.json();
 
-async function readCount() {
-  return parseInt(await fs.promises.readFile(filePath, 'utf-8').catch(() => '0'));
-}
-
-const getCount = createServerFn({
-  method: 'GET'
-}).handler(() => {
-  return readCount();
+  return DataSchema.parse(rawData);
 });
-
-const updateCount = createServerFn({ method: 'POST' })
-  .validator((d: number) => d)
-  .handler(async ({ data }) => {
-    const count = await readCount();
-    await fs.promises.writeFile(filePath, `${count + data}`);
-  });
 
 export const Route = createFileRoute('/')({
   component: Home,
-  loader: async () => await getCount()
+  loader: async () => await getData()
 });
 
 function Home() {
-  const router = useRouter();
-  const state = Route.useLoaderData();
+  // const router = useRouter();
+  const data: Data = Route.useLoaderData();
+
+  const [globalState, globalDispatch] = useReducer(globalReducer, initialValue.globalState);
 
   return (
-    <button
-      type="button"
-      onClick={() => {
-        updateCount({ data: 1 }).then(() => {
-          router.invalidate();
-        });
-      }}
-    >
-      Add 1 to {state}?
-    </button>
+    <div className={styles.layout}>
+      <GlobalContext value={{ globalState, globalDispatch }}>
+        <Header />
+        {/*<Menu />*/}
+        <Main data={data} />
+      </GlobalContext>
+    </div>
   );
 }

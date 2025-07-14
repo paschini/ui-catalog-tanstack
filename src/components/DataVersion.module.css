@@ -1,0 +1,6 @@
+.dataInfo {
+  width: max-content;
+  margin: var(--padding-medium) var(--padding-xlarge);
+  align-self: end;
+  justify-self: left;
+}

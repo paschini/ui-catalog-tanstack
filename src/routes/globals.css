@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Lato, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+:root {
+
+
+  --color-black-45: rgba(0, 0, 0, 0.45);
+  --color-gray-4: #bdbdbd;
+  --color-natural: #fff;
+  --color-neutral-01: #f9fafa;
+  --color-neutral-02: #f6f6f8;
+  --color-neutral-03-light: #ededf0;
+  --color-unifi-neutral-02: #f4f5f6;
+  --color-neutral-08: #838691;
+  --color-red: #f03a3e;
+  --color-red-03: #f9b0b2;
+  --color-text-light: rgba(0, 0, 0, 0.85);
+  --color-text-1: #212327;
+  --color-text-2: #50565e;
+  --color-text-3: rgba(0, 0, 0, 0.45);
+  --color-text-3-light: rgba(0, 0, 0, 0.45);
+  --color-ublue-06: #006fff;
+
+  --padding-small: 10px;
+  --padding-medium: 20px;
+  --padding-large: 30px;
+  --padding-xlarge: 40px;
+
+  --sizes-line-height: 36px;
+}

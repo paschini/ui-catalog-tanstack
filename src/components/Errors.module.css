@@ -1,0 +1,7 @@
+.errors {
+  width: max-content;
+  align-self: center;
+  justify-content: right;
+  margin: var(--padding-medium) var(--padding-xlarge);
+  color: var(--color-red);
+}

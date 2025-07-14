@@ -1,0 +1,16 @@
+.layout {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 52px 80px calc(100vh - 108px);
+    grid-template-areas:
+        "header"
+        "menu"
+        "main";
+    background-color: var(--color-natural);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    color: var(--color-text-2);
+    scrollbar-color: #f0f0f0 var(--color-natural);
+}

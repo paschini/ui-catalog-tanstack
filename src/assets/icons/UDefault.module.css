@@ -1,0 +1,28 @@
+.icon {
+    width:50px;
+    height:50px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background-color: transparent;
+    outline: none;
+    fill: var(--color-text-2);
+}
+
+.icon:hover {
+    border: 1px solid var(--color-natural);
+    fill: var(--color-ublue-06);
+    background-color: var(--color-natural);
+}
+
+.icon:active {
+    border: 1px solid var(--color-ublue-06);
+    fill: #50565E;
+    background-color: var(--color-neutral-02);
+}
+
+.icon:focus {
+    border: 1px solid var(--color-neutral-02);
+    fill: #50565E;
+    background-color: var(--color-neutral-02);
+}

@@ -1,0 +1,30 @@
+.headerContainer {
+  grid-area: header;
+  width: 100vw;
+  height: 52px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-unifi-neutral-02);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.breadcrumbs {
+  width: 60rem;
+  height: 100%;
+  align-content: center;
+  padding: 0
+}
+
+.author {
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  text-align: right;
+  padding: 0 var(--padding-medium);
+}
+
+.pointer {
+  cursor: pointer
+}

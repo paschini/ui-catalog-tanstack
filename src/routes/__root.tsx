@@ -1,5 +1,17 @@
 import type { ReactNode } from 'react';
 import { Outlet, createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import './globals.css';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minuter
+      retry: 1,
+      refetchOnWindowFocus: false
+    }
+  }
+});
 
 export const Route = createRootRoute({
   head: () => ({
@@ -10,9 +22,13 @@ export const Route = createRootRoute({
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
-      },
+      }
+    ],
+    links: [
       {
-        title: 'TanStack Start Starter'
+        rel: 'preload',
+        href: '/src/globals.css',
+        as: 'style'
       }
     ]
   }),
@@ -22,7 +38,9 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <RootDocument>
-      <Outlet />
+      <QueryClientProvider client={queryClient}>
+        <Outlet />
+      </QueryClientProvider>
     </RootDocument>
   );
 }
@@ -31,6 +49,13 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html>
       <head>
+        <title>TanStack Start Starter</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'anonymous'} />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet"
+        />
         <HeadContent />
       </head>
       <body>
