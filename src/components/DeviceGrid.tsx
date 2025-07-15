@@ -1,105 +1,24 @@
 import { startTransition, Suspense, useContext, useEffect, useState } from 'react';
 import type { DeviceData } from './DeviceDataTypes.ts';
-// import ImageLoader from '../components/ImageLoader';
+import ImageLoader from '../components/ImageLoader';
 import Img from '../assets/icons/Img';
 import { GlobalContext } from '../globalContext';
-// import { prefetchImage } from './utils';
-
-const useStyles = createUseStyles({
-  table: {
-    width: '96%',
-    height: '100%',
-    overflowY: 'hidden'
-  },
-  tableContent: {
-    width: '100%',
-    height: '100%',
-    overflowX: 'hidden',
-    overflowY: 'scroll',
-    scrollbarWidth: 'thin',
-    scrollbarGutter: 'stable',
-    '&::-webkit-scrollbar-track': {
-      background: 'transparent'
-    }
-  },
-  tableRow: {
-    width: '99%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))',
-    gridAutoRows: 'auto',
-    gap: '15px',
-    lineHeight: theme.sizes.lineHeight,
-    alignItems: 'start'
-  },
-  tableCell: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    boxSizing: 'border-box',
-    borderRadius: theme.sizes.borderRadius,
-    border: `1px solid ${theme.color.neutral03Light}`,
-    backgroundColor: theme.color.neutral01,
-    cursor: 'pointer',
-    '&:hover': {
-      backgroundColor: theme.color.neutral02
-    },
-    '&:hover > div': {
-      backgroundColor: theme.color.neutral02
-    }
-  },
-  tableCellInfo: {
-    width: 'calc(100% - 10px)',
-    height: 'min-content',
-    padding: '5px',
-    alignItems: 'center',
-    backgroundColor: theme.color.natural,
-    overflow: 'hidden'
-  },
-  tableCellImage: {
-    width: 84,
-    height: 84,
-    objectFit: 'contain',
-    objectPosition: 'center'
-  },
-  text: {
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    textTransform: 'capitalize'
-  },
-  abbrev: {
-    color: theme.color.text3Light
-  },
-  unifiTag: {
-    position: 'relative',
-    width: '100%'
-  },
-  unifiTagText: {
-    position: 'absolute',
-    top: 0,
-    backgroundColor: theme.color.natural,
-    color: theme.color.ublue06,
-    padding: '5px 10px',
-    lineHeight: '18px',
-    borderRadius: theme.sizes.borderRadius
-  }
-});
+import styles from './DeviceGrid.module.css';
 
 type DeviceGridProps = {
-  onSelectDevice: (index: number) => void;
+  data: DeviceData[];
+  // onSelectDevice: (index: number) => void;
 };
 
 const DeviceGrid = (props: DeviceGridProps) => {
-  const styles = useStyles();
-  const { onSelectDevice } = props;
+  const { data } = props;
   const iconSize = 84;
 
   const {
     globalState: { deviceList, filteredDeviceList }
   } = useContext(GlobalContext);
 
-  const [devices, setDevices] = useState<DeviceData[]>([]);
+  const [devices, setDevices] = useState<DeviceData[]>(data);
 
   useEffect(() => {
     startTransition(() => {
@@ -119,8 +38,8 @@ const DeviceGrid = (props: DeviceGridProps) => {
             <div
               key={`device-${device.id}`}
               className={styles.tableCell}
-              onClick={() => onSelectDevice(deviceList.indexOf(device))}
-              onMouseEnter={() => prefetchImage(device)}
+              // onClick={() => onSelectDevice(deviceList.indexOf(device))}
+              onClick={() => console.log(device)}
             >
               {device.line.name === 'UniFi' && (
                 <div className={styles.unifiTag}>

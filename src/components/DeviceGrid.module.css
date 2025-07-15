@@ -1,0 +1,90 @@
+.table {
+  width: 96%;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.tableContent {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
+
+.tableContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tableRow {
+  width: 98%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-auto-rows: auto;
+  gap: 15px;
+  line-height: var(--sizes-line-height);
+  align-items: start;
+}
+
+.tableCell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: var(--sizes-border-radius);
+  border: 1px solid var(--color-neutral-03-light);
+  background-color: var(--color-neutral-01);
+  cursor: pointer;
+}
+
+.tableCell:hover {
+  background-color: var(--color-neutral-02);
+}
+
+.tableCell:hover > div {
+  background-color: var(--color-neutral-02);
+}
+
+.tableCellInfo {
+  width: calc(100% - 10px);
+  height: min-content;
+  padding: 5px;
+  align-items: center;
+  background-color: var(--color-natural);
+  overflow: hidden;
+}
+
+.tableCellImage {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+
+.abbrev {
+  color: var(--color-text-3-light);
+}
+
+.unifiTag {
+  position: relative;
+  width: 100%;
+}
+
+.unifiTagText {
+  position: absolute;
+  top: 0;
+  background-color: var(--color-natural);
+  color: var(--color-ublue-06);
+  padding: 5px 10px;
+  line-height: 18px;
+  border-radius: var(--sizes-border-radius);
+}

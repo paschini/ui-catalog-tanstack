@@ -33,7 +33,7 @@ const ImageLoader = (props: ImageLoaderProps) => {
 
   if (error) {
     console.error('Image loading error:', error);
-    globalDispatch({ type: 'SET_ERROR', payload: { code: 13, message: error } });
+    globalDispatch({ type: 'SET_ERROR', payload: { code: 13, message: error.message } });
     return <Img />;
   }
 

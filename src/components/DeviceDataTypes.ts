@@ -5,19 +5,6 @@ const BtleSchema = z.object({
   userConfigured: z.string().optional()
 });
 
-// const BtleSchema = z.object({
-//   factoryDefault: z
-//     .object({
-//       mode: z.enum(['factory', 'default'])
-//     })
-//     .optional(),
-//   userConfigured: z
-//     .object({
-//       mode: z.enum(['factory', 'default'])
-//     })
-//     .optional()
-// });
-
 const ComplianceSchema = z.object({
   anatel: z.string(),
   fcc: z.string(),
@@ -33,10 +20,10 @@ const ComplianceSchema = z.object({
   })
 });
 
-const FirmwareSchema = z.object({
-  board: z.array(z.string()),
-  platform: z.string()
-});
+// const FirmwareSchema = z.object({
+//   board: z.array(z.string()),
+//   platform: z.string()
+// });
 
 const ImagesSchema = z.object({
   default: z.string(),
@@ -146,7 +133,7 @@ const UISPSchema = z.object({
 const DeviceSchema = z.object({
   btle: BtleSchema.optional(),
   uisp: UISPSchema.optional(),
-  compliance: z.object({}).optional(),
+  compliance: ComplianceSchema.optional(),
   guids: z.array(z.string()),
   icon: IconSchema,
   id: z.string(),

@@ -24,3 +24,5 @@ node_modules
 *.ipr
 out/
 
+# TanStack Generated file
+routeTree.gen.ts

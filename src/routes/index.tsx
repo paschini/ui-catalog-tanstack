@@ -1,36 +1,34 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { createServerFn } from '@tanstack/react-start';
 import { GlobalContext, initialValue } from '../globalContext';
-import { useReducer } from 'react';
-import { globalReducer } from '../globalReducer';
+import { createFileRoute } from '@tanstack/react-router';
 import Header from '../components/Header';
 import Main from '../components/Main';
+import DeviceList from '../components/DeviceList';
 import RouteWrapper from '../components/RouteWrapepr';
-import styles from './index.module.css';
-import { Data, DataSchema } from '../components/DeviceDataTypes';
-
-const getData = createServerFn({ method: 'GET' }).handler(async (): Promise<Data> => {
-  const res = await fetch('https://static.ui.com/fingerprint/ui/public.json');
-  const rawData = await res.json();
-
-  return DataSchema.parse(rawData);
-});
+import { useDeviceData } from '../hooks/useDeviceData';
+import styles from './layout.module.css';
+import { useReducer } from 'react';
+import { globalReducer } from '../globalReducer';
 
 export const Route = createFileRoute('/')({
-  component: Home,
-  loader: async () => await getData()
+  component: Home
 });
 
 function Home() {
-  const data: Data = Route.useLoaderData();
   const [globalState, globalDispatch] = useReducer(globalReducer, initialValue.globalState);
+
+  const { data, isLoading, error } = useDeviceData();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading data</div>;
 
   return (
     <RouteWrapper styleModules={[styles]}>
       <div className={styles.layout}>
+        <Header />
         <GlobalContext value={{ globalState, globalDispatch }}>
-          <Header />
-          <Main data={data} />
+          <Main version={data?.version || ''}>
+            <DeviceList data={data?.devices || []} />
+          </Main>
         </GlobalContext>
       </div>
     </RouteWrapper>

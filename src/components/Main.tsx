@@ -1,38 +1,34 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect, ReactElement } from 'react';
 import { GlobalContext } from '../globalContext';
 import DataVersion from './DataVersion';
-import DeviceList from './DeviceList';
 import Errors from './Errors';
 import styles from './Main.module.css';
 
-import type { Data } from './DeviceDataTypes';
-
 type MainProps = {
-  data: Data;
+  version: string;
+  children: ReactElement;
 };
 
 const Main = (props: MainProps) => {
-  const { data } = props;
-  // const DeviceDetails = lazy(() => import('./DeviceDetails'));
-
-  const [isShowingNotification, setIsShowingNotification] = useState(false);
-
+  const { version, children } = props;
   const {
-    globalState: { errors },
-    globalDispatch
+    globalState: { errors }
   } = useContext(GlobalContext);
+  const [isShowingNotification, setIsShowingNotification] = useState(errors.length > 0);
+
+  useEffect(() => {
+    setIsShowingNotification(errors.length > 0);
+  }, [errors]);
 
   return (
     <div className={styles.main}>
       {isShowingNotification && (
         <div className={styles.notificationArea}>
-          <DataVersion version={data?.version} />
+          <DataVersion version={version} />
           <Errors />
         </div>
       )}
-      <div className={styles.contentArea}>
-        <DeviceList data={data.devices} />
-      </div>
+      <div className={styles.contentArea}>{children}</div>
     </div>
   );
 };
