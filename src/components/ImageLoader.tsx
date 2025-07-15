@@ -29,12 +29,13 @@ const ImageLoader = (props: ImageLoaderProps) => {
     }
   });
 
-  if (isLoading) return <Img width={'33'} height={'19'} />;
+  console.log('ImageLoader', src, alt, width, height, className);
+  if (isLoading) return <Img width={width || '33px'} height={height || '19'} />;
 
   if (error) {
     console.error('Image loading error:', error);
     globalDispatch({ type: 'SET_ERROR', payload: { code: 13, message: error.message } });
-    return <Img />;
+    return <Img width={width || '33px'} height={height || '19'} />;
   }
 
   return <img width={width} height={height} src={src} alt={alt} className={className} />;

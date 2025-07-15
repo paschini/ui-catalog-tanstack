@@ -6,24 +6,27 @@ const BtleSchema = z.object({
 });
 
 const ComplianceSchema = z.object({
-  anatel: z.string(),
-  fcc: z.string(),
-  ic: z.string(),
-  icEmi: z.string(),
-  modelName: z.string(),
-  rfCmFcc: z.string(),
-  rfCmIc: z.string(),
-  text: z.object({
-    BR: z.array(z.string()),
-    CA: z.array(z.string()),
-    US: z.array(z.string())
-  })
+  anatel: z.string().optional(),
+  fcc: z.string().optional(),
+  ic: z.string().optional(),
+  icEmi: z.string().optional(),
+  modelName: z.string().optional(),
+  rcm: z.boolean().optional(),
+  rfCmFcc: z.number().optional(),
+  rfCmIc: z.number().optional(),
+  text: z
+    .object({
+      BR: z.array(z.string()).optional(),
+      CA: z.array(z.string()).optional(),
+      US: z.array(z.string()).optional()
+    })
+    .optional()
 });
 
-// const FirmwareSchema = z.object({
-//   board: z.array(z.string()),
-//   platform: z.string()
-// });
+const FirmwareSchema = z.object({
+  board: z.array(z.string()),
+  platform: z.string()
+});
 
 const ImagesSchema = z.object({
   default: z.string(),

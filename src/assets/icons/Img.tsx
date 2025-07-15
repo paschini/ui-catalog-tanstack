@@ -6,15 +6,7 @@ interface ImgProps extends IconProps {
 }
 
 const Img = (props: ImgProps) => {
-  const {
-    // backgroundFill = 'var(--color-natural)',
-    // fill = 'var(--color-neutral-02)',
-    backgroundFill = '#FFF',
-    fill = '#f6f6f8',
-    className,
-    width = '145',
-    height = '119'
-  } = props;
+  const { backgroundFill = '#FFF', fill = '#f6f6f8', className, width = '145', height = '119' } = props;
 
   return (
     <svg

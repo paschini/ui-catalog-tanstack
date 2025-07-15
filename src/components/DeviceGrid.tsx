@@ -15,7 +15,7 @@ const DeviceGrid = (props: DeviceGridProps) => {
   const iconSize = 84;
 
   const {
-    globalState: { deviceList, filteredDeviceList }
+    globalState: { filteredDeviceList }
   } = useContext(GlobalContext);
 
   const [devices, setDevices] = useState<DeviceData[]>(data);
@@ -25,10 +25,10 @@ const DeviceGrid = (props: DeviceGridProps) => {
       if (filteredDeviceList.length > 0) {
         setDevices(filteredDeviceList);
       } else {
-        setDevices(deviceList);
+        setDevices(devices);
       }
     });
-  }, [deviceList, filteredDeviceList]);
+  }, [devices, filteredDeviceList]);
 
   return (
     <div className={styles.table}>
@@ -46,10 +46,12 @@ const DeviceGrid = (props: DeviceGridProps) => {
                   <div className={styles.unifiTagText}>UniFi</div>
                 </div>
               )}
-              <Suspense fallback={<Img />}>
+              <Suspense fallback={<Img width={'84px'} height={'84px'} />}>
                 <ImageLoader
                   src={`https://images.svc.ui.com/?u=https%3A%2F%2Fstatic.ui.com%2Ffingerprint%2Fui%2Fimages%2F${device.id}%2Fdefault%2F${device.images.default}.png&w=${iconSize}&q=75`}
                   alt={`icon for ${device.product.name} ${device.line.name}`}
+                  width={'84px'}
+                  height={'84px'}
                 />
               </Suspense>
 

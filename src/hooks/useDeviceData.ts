@@ -4,6 +4,7 @@ import { Data, DataSchema } from '../components/DeviceDataTypes';
 const fetchDeviceData = async (): Promise<Data> => {
   const res = await fetch('https://static.ui.com/fingerprint/ui/public.json');
   const rawData = await res.json();
+
   return DataSchema.parse(rawData);
 };
 
