@@ -1,5 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactNode, useReducer } from 'react';
 import { useCssLoader } from '../hooks/useCssLoader';
+import { GlobalContext, initialValue } from '../globalContext';
+import { globalReducer } from '../globalReducer';
 
 interface RouteWrapperProps {
   children: ReactNode;
@@ -8,6 +10,8 @@ interface RouteWrapperProps {
 }
 
 const RouteWrapper = ({ children, styleModules, loadingComponent }: RouteWrapperProps) => {
+  const [globalState, globalDispatch] = useReducer(globalReducer, initialValue.globalState);
+
   const cssLoaded = useCssLoader(...styleModules);
 
   if (!cssLoaded) {
@@ -28,7 +32,7 @@ const RouteWrapper = ({ children, styleModules, loadingComponent }: RouteWrapper
     );
   }
 
-  return <>{children}</>;
+  return <GlobalContext value={{ globalState, globalDispatch }}>{children}</GlobalContext>;
 };
 
 export default RouteWrapper;

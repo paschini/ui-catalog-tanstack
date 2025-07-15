@@ -1,6 +1,3 @@
-import { useReducer } from 'react';
-import { GlobalContext, initialValue } from '../globalContext';
-import { globalReducer } from '../globalReducer';
 import { createFileRoute } from '@tanstack/react-router';
 import Header from '../components/Header';
 import DeviceGrid from '../components/DeviceGrid';
@@ -14,8 +11,6 @@ export const Route = createFileRoute('/grid')({
 });
 
 function GridPage() {
-  const [globalState, globalDispatch] = useReducer(globalReducer, initialValue.globalState);
-
   const { data, isLoading, error } = useDeviceData();
 
   if (isLoading) return <div>Loading...</div>;
@@ -25,11 +20,9 @@ function GridPage() {
     <RouteWrapper styleModules={[styles]}>
       <div className={styles.layout}>
         <Header />
-        <GlobalContext value={{ globalState, globalDispatch }}>
-          <Main version={data?.version || ''}>
-            <DeviceGrid data={data?.devices || []} />
-          </Main>
-        </GlobalContext>
+        <Main version={data?.version || ''}>
+          <DeviceGrid data={data?.devices || []} />
+        </Main>
       </div>
     </RouteWrapper>
   );

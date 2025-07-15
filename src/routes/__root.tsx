@@ -6,8 +6,8 @@ import './globals.css';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 60 * 24,
-      gcTime: 1000 * 60 * 60 * 24,
+      staleTime: 24 * 60 * 60 * 1000, // 24 hours long cache
+      gcTime: 7 * 24 * 60 * 60 * 1000, // 7 days garbage collection
       retry: 1,
       refetchOnWindowFocus: false,
       refetchOnReconnect: false,

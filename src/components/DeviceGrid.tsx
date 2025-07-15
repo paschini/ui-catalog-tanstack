@@ -1,4 +1,4 @@
-import { startTransition, Suspense, useContext, useEffect, useState } from 'react';
+import { startTransition, Suspense, useContext, useEffect, useState, useMemo } from 'react';
 import type { DeviceData } from './DeviceDataTypes.ts';
 import ImageLoader from '../components/ImageLoader';
 import Img from '../assets/icons/Img';
@@ -7,7 +7,6 @@ import styles from './DeviceGrid.module.css';
 
 type DeviceGridProps = {
   data: DeviceData[];
-  // onSelectDevice: (index: number) => void;
 };
 
 const DeviceGrid = (props: DeviceGridProps) => {
@@ -25,22 +24,25 @@ const DeviceGrid = (props: DeviceGridProps) => {
       if (filteredDeviceList.length > 0) {
         setDevices(filteredDeviceList);
       } else {
-        setDevices(devices);
+        setDevices(data); // Fixat: använd data istället för devices
       }
     });
-  }, [devices, filteredDeviceList]);
+  }, [data, filteredDeviceList]);
+
+  // Memoize image URLs för att undvika onödiga re-renders
+  const devicesWithImageUrls = useMemo(() => {
+    return devices.map((device) => ({
+      ...device,
+      imageUrl: `https://images.svc.ui.com/?u=https%3A%2F%2Fstatic.ui.com%2Ffingerprint%2Fui%2Fimages%2F${device.id}%2Fdefault%2F${device.images.default}.png&w=${iconSize}&q=75`
+    }));
+  }, [devices, iconSize]);
 
   return (
     <div className={styles.table}>
       <div className={styles.tableContent}>
         <div className={styles.tableRow}>
-          {devices.map((device) => (
-            <div
-              key={`device-${device.id}`}
-              className={styles.tableCell}
-              // onClick={() => onSelectDevice(deviceList.indexOf(device))}
-              onClick={() => console.log(device)}
-            >
+          {devicesWithImageUrls.map((device) => (
+            <div key={`device-${device.id}`} className={styles.tableCell} onClick={() => console.log(device)}>
               {device.line.name === 'UniFi' && (
                 <div className={styles.unifiTag}>
                   <div className={styles.unifiTagText}>UniFi</div>
@@ -48,10 +50,11 @@ const DeviceGrid = (props: DeviceGridProps) => {
               )}
               <Suspense fallback={<Img width={'84px'} height={'84px'} />}>
                 <ImageLoader
-                  src={`https://images.svc.ui.com/?u=https%3A%2F%2Fstatic.ui.com%2Ffingerprint%2Fui%2Fimages%2F${device.id}%2Fdefault%2F${device.images.default}.png&w=${iconSize}&q=75`}
+                  src={device.imageUrl}
                   alt={`icon for ${device.product.name} ${device.line.name}`}
                   width={'84px'}
                   height={'84px'}
+                  lazy={true}
                 />
               </Suspense>
 
