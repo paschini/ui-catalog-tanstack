@@ -23,6 +23,9 @@
 
   --sizes-line-height: 36px;
   --sizes-border-radius: 4px;
+  --font-size: 14px;
+
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* eller vilken shadow du vill ha */
 }
 
 body {
@@ -32,7 +35,7 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: Lato, Roboto, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: var(--font-size);
   opacity: var(0);
   transition: opacity 0.15s ease-in-out;
 }

@@ -1,7 +1,9 @@
-import type { ReactNode } from 'react';
+import { ReactNode, useReducer } from 'react';
 import { Outlet, createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './globals.css';
+import { GlobalContext, initialValue } from '../globalContext';
+import { globalReducer } from '../globalReducer';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,10 +34,14 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+  const [globalState, globalDispatch] = useReducer(globalReducer, initialValue.globalState);
+
   return (
     <RootDocument>
       <QueryClientProvider client={queryClient}>
-        <Outlet />
+        <GlobalContext value={{ globalState, globalDispatch }}>
+          <Outlet />
+        </GlobalContext>
       </QueryClientProvider>
     </RootDocument>
   );

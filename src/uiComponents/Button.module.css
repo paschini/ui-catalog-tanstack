@@ -1,0 +1,78 @@
+.button {
+  width: max-content;
+  padding: 5px 5px 5px 5px;
+  border-radius: var(--sizes-border-radius);
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background-color: transparent;
+  outline: none;
+  color: var(--color-black-45);
+  font-size: var(--font-size);
+}
+
+.button:hover {
+  background-color: var(--color-neutral-02);
+  border: 1px solid var(--color-neutral-02);
+}
+
+.button:focus {
+  background-color: transparent;
+  border: 1px solid var(--color-ublue-06);
+}
+
+.button:active {
+  background-color: var(--color-neutral-01);
+  border: 1px solid var(--color-neutral-01);
+  color: var(--color-ublue-06);
+}
+
+.active {
+  background-color: var(--color-neutral-01);
+  border: 1px solid var(--color-neutral-01);
+  color: var(--color-ublue-06);
+}
+
+.danger {
+  width: max-content;
+  padding: 5px 5px 5px 5px;
+  border-radius: var(--sizes-border-radius);
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background-color: transparent;
+  outline: none;
+  font-size: var(--font-size);
+  color: var(--color-red);
+}
+
+.danger:disabled {
+  color: var(--color-red-03);
+}
+
+.shadowed {
+  width: max-content;
+  padding: 5px 5px 5px 5px;
+  border-radius: var(--sizes-border-radius);
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background-color: var(--color-natural);
+  color: var(--color-black-45);
+  outline: none;
+  font-size: var(--font-size);
+  box-shadow: 0 0 25px 10px var(--color-neutral-02);
+}
+
+.shadowed:hover {
+  background-color: var(--color-neutral-02);
+  border: 1px solid var(--color-neutral-02);
+}
+
+.shadowed:focus {
+  background-color: transparent;
+  border: 1px solid var(--color-ublue-06);
+}
+
+.shadowed:active {
+  background-color: var(--color-neutral-01);
+  border: 1px solid var(--color-neutral-01);
+  color: var(--color-ublue-06);
+}

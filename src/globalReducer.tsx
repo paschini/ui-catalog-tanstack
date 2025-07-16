@@ -6,12 +6,13 @@ export type GlobalActions =
   | { type: 'SET_ERROR'; payload: Error }
   | { type: 'SET_DEVICE_LIST'; payload: DeviceData[] }
   | { type: 'SET_FILTERED_DEVICE_LIST'; payload: DeviceData[] }
-  | { type: 'SET_CHECKED_FILTER_ITEMS'; payload: string[] };
-// | { type: 'SET_ACTIVE_DEVICE'; index: number };
+  | { type: 'SET_CHECKED_FILTER_ITEMS'; payload: string[] }
+  | { type: 'SET_ACTIVE_DEVICE_INDEX'; index: number };
 
 export const globalReducer = (state: GlobalStateType, action: GlobalActions): GlobalStateType => {
   switch (action.type) {
     case 'SET_DEVICE_LIST': {
+      console.log('payload!!!!', action.payload);
       return {
         ...state,
         deviceList: action.payload
@@ -31,12 +32,12 @@ export const globalReducer = (state: GlobalStateType, action: GlobalActions): Gl
         checkedFilterItems: action.payload
       };
 
-    // case 'SET_ACTIVE_DEVICE': {
-    //   return {
-    //     ...state,
-    //     activeDeviceIndex: action.index
-    //   };
-    // }
+    case 'SET_ACTIVE_DEVICE_INDEX': {
+      return {
+        ...state,
+        activeDeviceIndex: action.index
+      };
+    }
 
     case 'SET_ERROR': {
       const errorExists = state.errors.some((error) => error.message === action.payload.message);

@@ -1,0 +1,18 @@
+.listContainer {
+  position: absolute;
+  top: 105px;
+  right: 28px;
+  display: block;
+  width: max-content;
+  background-color: var(--color-natural);
+  border-radius: var(--sizes-border-radius);
+  box-shadow: var(--box-shadow);
+  line-height: var(--sizes-line-height);
+  padding: var(--padding-medium);
+  z-index: 10000;
+}
+
+.title {
+  margin: 0;
+  line-height: var(--sizes-line-height);
+}

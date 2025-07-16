@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState, startTransition, Suspense } from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import type { DeviceData } from './DeviceDataTypes.ts';
 import ImageLoader from '../components/ImageLoader';
 import { GlobalContext } from '../globalContext';
@@ -18,6 +19,8 @@ const DeviceList = (props: DeviceListProps) => {
   } = useContext(GlobalContext);
 
   const [devices, setDevices] = useState<DeviceData[]>(data);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     startTransition(() => {
@@ -45,7 +48,7 @@ const DeviceList = (props: DeviceListProps) => {
             className={styles.tableRow}
             key={`device-${device.id}`}
             onClick={() => {
-              console.log(device);
+              navigate({ to: `/details/${device.id}` });
             }}
           >
             <Suspense fallback={<Img width={'33px'} height={'33px'} />}>

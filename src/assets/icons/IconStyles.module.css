@@ -1,0 +1,34 @@
+.icon {
+  width: 33px;
+  height: 33px;
+  padding: 5px 5px 5px 5px;
+  border-radius: var(--sizes-border-radius);
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background-color: transparent;
+  outline: none;
+  fill: var(--color-neutral-08);
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: var(--color-neutral-02);
+  border: 1px solid var(--color-neutral-02);
+}
+
+.icon:focus {
+  background-color: var(--color-neutral-02);
+  border: 1px solid var(--color-ublue-06);
+}
+
+.icon:active {
+  background-color: var(--color-neutral-01);
+  border: 1px solid var(--color-neutral-01);
+  fill: var(--color-ublue-06);
+}
+
+.active {
+  background-color: var(--color-neutral-01);
+  border: 1px solid var(--color-neutral-01);
+  fill: var(--color-ublue-06);
+}

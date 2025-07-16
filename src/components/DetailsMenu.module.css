@@ -1,0 +1,31 @@
+.menuContainer {
+  grid-area: menu;
+  display: flex;
+  max-width: 95vw;
+  margin: 0;
+  padding: 20px 40px 20px 40px;
+  background-color: var(--color-natural);
+  justify-content: space-between;
+}
+
+.leftContainer {
+  display: flex;
+  max-width: 40%;
+}
+
+.rightContainer {
+  display: flex;
+  max-width: min-content;
+  align-self: center;
+}
+
+.iconPlacement {
+  align-self: center;
+}
+
+.buttonTextPlacement {
+  padding-right: var(--padding-small);
+  line-height: 14px;
+  position: relative;
+  top: -4px;
+}

@@ -1,4 +1,5 @@
 import { startTransition, Suspense, useContext, useEffect, useState, useMemo } from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import type { DeviceData } from './DeviceDataTypes.ts';
 import ImageLoader from '../components/ImageLoader';
 import Img from '../assets/icons/Img';
@@ -18,6 +19,8 @@ const DeviceGrid = (props: DeviceGridProps) => {
   } = useContext(GlobalContext);
 
   const [devices, setDevices] = useState<DeviceData[]>(data);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     startTransition(() => {
@@ -42,7 +45,13 @@ const DeviceGrid = (props: DeviceGridProps) => {
       <div className={styles.tableContent}>
         <div className={styles.tableRow}>
           {devicesWithImageUrls.map((device) => (
-            <div key={`device-${device.id}`} className={styles.tableCell} onClick={() => console.log(device)}>
+            <div
+              key={`device-${device.id}`}
+              className={styles.tableCell}
+              onClick={() => {
+                navigate({ to: `/details/${device.id}` });
+              }}
+            >
               {device.line.name === 'UniFi' && (
                 <div className={styles.unifiTag}>
                   <div className={styles.unifiTagText}>UniFi</div>
