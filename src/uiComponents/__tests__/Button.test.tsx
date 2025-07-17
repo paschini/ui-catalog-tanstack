@@ -32,17 +32,6 @@ describe(' Tests for Button', () => {
 
     expect(button).toHaveAttribute('aria-pressed', 'false');
 
-    screen.debug();
-
-    console.log(buttonStyle);
-    console.log(button.style);
-    console.log(button.style.cssText);
-
-    expect(button).not.toHaveStyle(`
-      background-color: rgb(255, 255, 255);
-      color: rgba(0, 0, 0, 0.45);
-    `); // passes for wrong reasons
-
     await user.pointer([{ target: button }, { keys: '[MouseLeft>]' }]);
     expect(button).toHaveAttribute('aria-pressed', 'true');
 

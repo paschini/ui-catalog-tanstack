@@ -16,14 +16,5 @@ export default defineConfig({
   // Optimera för bilder och QueryClient
   optimizeDeps: {
     include: ['@tanstack/react-query']
-  },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'react-query': ['@tanstack/react-query']
-        }
-      }
-    }
   }
 });
