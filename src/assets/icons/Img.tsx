@@ -16,6 +16,7 @@ const Img = (props: ImgProps) => {
       fill={'none'}
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      role="img"
     >
       <path d="M0 119V59.5V0H145V119H0Z" fill={'none'} />
       <path

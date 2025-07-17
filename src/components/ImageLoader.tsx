@@ -30,7 +30,7 @@ const ImageLoader = (props: ImageLoaderProps) => {
         }
       },
       {
-        rootMargin: '50px' // start laoding ahead a little bit
+        rootMargin: '50px' // start loading ahead a little bit
       }
     );
 

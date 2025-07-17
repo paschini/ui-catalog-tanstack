@@ -1,16 +1,18 @@
-import type { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import styles from './Button.module.css';
 
 type ButtonProps = {
   type?: 'danger' | 'shadowed' | 'button';
-  isActive?: boolean;
   disabled?: boolean;
   children: ReactNode;
   onClick: () => void;
+  isActive?: boolean;
 };
 
 const Button = (props: ButtonProps) => {
-  const { type, isActive, disabled, children, onClick } = props;
+  const { type, disabled, children, onClick, isActive } = props;
+
+  const [isPressed, setIsPressed] = useState(false);
 
   return (
     <button
@@ -24,6 +26,9 @@ const Button = (props: ButtonProps) => {
             : styles.button
       }
       disabled={disabled}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseDown={() => setIsPressed(true)}
+      aria-pressed={isPressed}
     >
       {children}
     </button>

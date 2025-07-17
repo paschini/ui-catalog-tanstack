@@ -29,8 +29,8 @@ const SearchInput = () => {
     const list = usableList
       .filter(
         (device) =>
-          device.product.name.toLowerCase().includes(searchValue) ||
-          device.product.abbrev.toLowerCase().includes(searchValue)
+          device.product.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+          device.product.abbrev.toLowerCase().includes(searchValue.toLowerCase())
       )
       .sort((a, b) => a.product.name.localeCompare(b.product.name))
       .map((device) => {
