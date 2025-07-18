@@ -4,7 +4,6 @@ import { afterEach, vi } from 'vitest';
 import { createElement } from 'react';
 import type { ReactNode } from 'react';
 
-// ✅ Cleanup efter varje test
 afterEach(() => {
   cleanup();
 });

@@ -1,8 +1,7 @@
-// src/test-utils/TestWrapper.tsx
 import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { GlobalContext, GlobalStateType } from '../globalContext';
-import type { GlobalActions } from '../globalReducer';
+import { GlobalContext, GlobalStateType } from '@/globalContext';
+import type { GlobalActions } from '@/globalReducer';
 import { mockDeviceArrays } from './mockDeviceData';
 
 type TestWrapperProps = {

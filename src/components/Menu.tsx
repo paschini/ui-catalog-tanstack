@@ -5,7 +5,7 @@ import Count from '../uiComponents/Count';
 import ListView from '../assets/icons/ListView';
 import GridView from '../assets/icons/GridView';
 import Filter from './Filter';
-import { GlobalContext } from '../globalContext';
+import { GlobalContext } from '@/globalContext';
 import styles from './Menu.module.css';
 
 const Menu = () => {

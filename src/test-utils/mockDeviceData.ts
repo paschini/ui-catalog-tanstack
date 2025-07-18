@@ -1,5 +1,4 @@
-// src/test-utils/mockDeviceData.ts
-import type { DeviceData } from '../components/DeviceDataTypes';
+import type { DeviceData } from '@/components/DeviceDataTypes';
 
 export const createMockDevice = (overrides: Partial<DeviceData> = {}): DeviceData => {
   const defaultDevice: DeviceData = {

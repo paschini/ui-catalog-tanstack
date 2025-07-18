@@ -1,7 +1,7 @@
 import { useContext, useRef, useEffect, useState } from 'react';
 import Img from '../assets/icons/Img';
 import { useQuery } from '@tanstack/react-query';
-import { GlobalContext } from '../globalContext';
+import { GlobalContext } from '@/globalContext';
 import './ImageLoader.module.css';
 
 type ImageLoaderProps = {

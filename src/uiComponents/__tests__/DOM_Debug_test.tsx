@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { vi } from 'vitest';
 import Button from '../Button';
 
 const mockOnClick = vi.fn();
@@ -19,7 +18,7 @@ test.skip('DEBUG: Inspect DOM for CSS', () => {
 
   // ✅ Kolla alla <style> taggar i DOM
   const styleTags = document.querySelectorAll('style');
-  console.log('Number of <style> tags:', styleTags.length);
+  console.log('Number of style tags:', styleTags.length);
 
   styleTags.forEach((style, index) => {
     console.log(`Style tag ${index}:`, style.textContent?.substring(0, 200) + '...');

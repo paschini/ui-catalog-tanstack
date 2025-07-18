@@ -5,8 +5,8 @@ import Menu from '../components/Menu';
 import Main from '../components/Main';
 import DeviceList from '../components/DeviceList';
 import RouteWrapper from '../components/RouteWrapepr';
-import { useDeviceData } from '../hooks/useDeviceData';
-import { GlobalContext } from '../globalContext';
+import { useDeviceData } from '@/hooks/useDeviceData';
+import { GlobalContext } from '@/globalContext';
 import styles from './layout.module.css';
 
 export const Route = createFileRoute('/')({

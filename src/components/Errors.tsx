@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GlobalContext } from '../globalContext';
+import { GlobalContext } from '@/globalContext';
 import styles from './Errors.module.css';
 
 export type Error = {

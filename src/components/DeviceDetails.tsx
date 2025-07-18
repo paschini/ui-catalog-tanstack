@@ -1,7 +1,6 @@
-import { Suspense, useContext, useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 import Img from '../assets/icons/Img';
 import ImageLoader from '../components/ImageLoader';
-import { GlobalContext } from '../globalContext';
 import styles from './DeviceDetails.module.css';
 
 import { DeviceData } from './DeviceDataTypes';

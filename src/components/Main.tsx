@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect, ReactElement } from 'react';
-import { GlobalContext } from '../globalContext';
+import { GlobalContext } from '@/globalContext';
 import DataVersion from './DataVersion';
 import Errors from './Errors';
 import styles from './Main.module.css';

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { Data, DataSchema } from '../components/DeviceDataTypes';
+import { Data, DataSchema } from '@/components/DeviceDataTypes';
 
 const fetchDeviceData = async (): Promise<Data> => {
   const res = await fetch('https://static.ui.com/fingerprint/ui/public.json');

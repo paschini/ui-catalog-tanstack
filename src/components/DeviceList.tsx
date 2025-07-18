@@ -2,7 +2,7 @@ import { useContext, useEffect, useState, startTransition, Suspense } from 'reac
 import { useNavigate } from '@tanstack/react-router';
 import type { DeviceData } from './DeviceDataTypes.ts';
 import ImageLoader from '../components/ImageLoader';
-import { GlobalContext } from '../globalContext';
+import { GlobalContext } from '@/globalContext';
 import styles from './DeviceList.module.css';
 import Img from '../assets/icons/Img';
 

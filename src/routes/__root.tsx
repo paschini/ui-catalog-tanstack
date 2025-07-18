@@ -2,8 +2,8 @@ import { ReactNode, useReducer } from 'react';
 import { Outlet, createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './globals.css';
-import { GlobalContext, initialValue } from '../globalContext';
-import { globalReducer } from '../globalReducer';
+import { GlobalContext, initialValue } from '@/globalContext';
+import { globalReducer } from '@/globalReducer';
 
 const queryClient = new QueryClient({
   defaultOptions: {

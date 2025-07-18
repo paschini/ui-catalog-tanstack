@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import Button from '../uiComponents/Button';
 import CheckBox from '../uiComponents/CheckBox';
-import { GlobalContext } from '../globalContext';
+import { GlobalContext } from '@/globalContext';
 import styles from './FilterList.module.css';
 
 const FilterList = () => {

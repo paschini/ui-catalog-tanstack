@@ -4,7 +4,7 @@ import ArrowLeftPrimary from '../assets/icons/ArrowLeftPrimary';
 import ArrowRightPrimary from '../assets/icons/ArrowRightPrimary';
 import styles from './DetailsMenu.module.css';
 import { useContext } from 'react';
-import { GlobalContext } from '../globalContext';
+import { GlobalContext } from '@/globalContext';
 
 const DetailsMenu = () => {
   const navigate = useNavigate();

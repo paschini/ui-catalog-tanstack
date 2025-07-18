@@ -3,8 +3,8 @@ import type { ChangeEvent } from 'react';
 import SearchList from './SearchList';
 import type { Item } from './SearchList';
 import Input from '../uiComponents/Input';
-import { useClickOutside } from '../hooks/useClickOutside';
-import { GlobalContext } from '../globalContext';
+import { useClickOutside } from '@/hooks/useClickOutside';
+import { GlobalContext } from '@/globalContext';
 
 const SearchInput = () => {
   const [searchValue, setSearchValue] = useState('');
