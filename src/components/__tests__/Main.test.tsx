@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { TestWrapper } from '../../test-utils/TestWrapper';
+import { TestWrapper } from '@/test-utils/TestWrapper';
 import Main from '../Main';
 
 describe('Tests for Main', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   test('shows errors when they exist', () => {

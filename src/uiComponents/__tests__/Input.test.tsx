@@ -14,7 +14,7 @@ describe('Tests for Input', () => {
 
   test('Input changes when user types', async () => {
     const user = userEvent.setup();
-    const mockOnchage = jest.fn();
+    const mockOnchage = vi.fn();
 
     render(<Input onChange={mockOnchage} />);
     const searchInput = screen.getByPlaceholderText('Search');

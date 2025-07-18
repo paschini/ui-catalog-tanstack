@@ -1,12 +1,12 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import ImageLoader from '../ImageLoader';
-import { TestWrapper } from '../../test-utils/TestWrapper';
+import { TestWrapper } from '@/test-utils/TestWrapper';
 
 describe('ImageLoader behavior', () => {
-  let mockDispatch: jest.Mock;
+  let mockDispatch: vi.Mock;
 
   beforeEach(() => {
-    mockDispatch = jest.fn();
+    mockDispatch = vi.fn();
   });
 
   test('shows SVG fallback when lazy loading enabled', () => {

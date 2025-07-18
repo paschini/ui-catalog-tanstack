@@ -8,10 +8,10 @@ import { mockDeviceArrays } from './mockDeviceData';
 type TestWrapperProps = {
   children: ReactNode;
   mockGlobalState?: Partial<GlobalStateType>;
-  mockDispatch?: jest.Mock<void, [GlobalActions]>;
+  mockDispatch?: vi.Mock<void, [GlobalActions]>;
 };
 
-export const TestWrapper = ({ children, mockGlobalState = {}, mockDispatch = jest.fn() }: TestWrapperProps) => {
+export const TestWrapper = ({ children, mockGlobalState = {}, mockDispatch = vi.fn() }: TestWrapperProps) => {
   const defaultGlobalState: GlobalStateType = {
     deviceList: mockDeviceArrays.mixed,
     filteredDeviceList: [],

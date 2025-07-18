@@ -38,6 +38,7 @@ export default tseslint.config([
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint//no-unnecessary-type-assertion': 'warn',
       quotes: ['error', 'single'],
       semi: ['error', 'always']
     }

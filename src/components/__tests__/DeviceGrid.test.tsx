@@ -1,21 +1,11 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { TestWrapper } from '../../test-utils/TestWrapper';
+import { TestWrapper } from '@/test-utils/TestWrapper';
 import DeviceGrid from '../DeviceList';
-import { mockDeviceArrays } from '../../test-utils/mockDeviceData';
-
-jest.mock('../ImageLoader', () => {
-  return function MockImageLoader({ alt, width, height }: any) {
-    return (
-      <div data-testid="mock-image" style={{ width, height }}>
-        {alt}
-      </div>
-    );
-  };
-});
+import { mockDeviceArrays } from '@/test-utils/mockDeviceData';
 
 describe('Tests for DeviceGrid', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   test('renders device grid correctly', () => {

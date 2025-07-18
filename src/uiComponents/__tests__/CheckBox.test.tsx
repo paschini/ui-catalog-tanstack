@@ -4,7 +4,7 @@ import CheckBox from '../CheckBox';
 
 describe('Tests for CheckBox', () => {
   test('CheckBox has the correct elements and attributes', () => {
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     render(<CheckBox id={'id'} label={'Test checkbox'} onChange={mockOnChange} />);
 
     const checkbox = screen.getByLabelText('Test checkbox');
@@ -14,7 +14,7 @@ describe('Tests for CheckBox', () => {
 
   test('CheckBox calls onChange when it clicked', async () => {
     const user = userEvent.setup();
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
 
     render(<CheckBox id={'id'} label={'Test checkbox'} onChange={mockOnChange} />);
     const checkbox = screen.getByLabelText('Test checkbox') as HTMLInputElement;
@@ -28,7 +28,7 @@ describe('Tests for CheckBox', () => {
   });
 
   test('CheckBox shows correct state when isChecked is true', async () => {
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
 
     render(<CheckBox id={'id'} label={'Test checkbox'} onChange={mockOnChange} isChecked={true} />);
     const checkbox1 = screen.getByLabelText('Test checkbox') as HTMLInputElement;
@@ -36,7 +36,7 @@ describe('Tests for CheckBox', () => {
   });
 
   test('CheckBox shows correct state when isChecked is false', async () => {
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
 
     render(<CheckBox id={'id'} label={'Test checkbox'} onChange={mockOnChange} isChecked={false} />);
     const checkbox1 = screen.getByLabelText('Test checkbox') as HTMLInputElement;
