@@ -24,5 +24,8 @@ node_modules
 *.ipr
 out/
 
+# Test Reports
+coverage
+
 # TanStack Generated file
 routeTree.gen.ts

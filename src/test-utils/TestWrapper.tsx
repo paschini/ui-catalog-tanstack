@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GlobalContext, GlobalStateType } from '@/globalContext';
 import type { GlobalActions } from '@/globalReducer';
 import { mockDeviceArrays } from './mockDeviceData';
+import { vi } from 'vitest';
 
 type TestWrapperProps = {
   children: ReactNode;

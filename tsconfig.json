@@ -16,6 +16,7 @@
   },
   "include": [
     "src/**/*",
-    "src/types/**/*"
+    "src/types/**/*",
+    "node_modules/vitest/globals.d.ts"
   ]
 }

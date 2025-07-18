@@ -14,8 +14,9 @@ export default defineConfig({
         classNameStrategy: 'scoped'
       }
     },
-    // include: ['**/*.{test}.?(c|m)[jt]s?(x)'],
-    exclude: ['node_modules', 'dist', '.git', '.cache']
+    exclude: ['node_modules', 'dist', '.git', '.cache'],
+    reporters: ['verbose'],
+    coverage: { enabled: true }
   },
   // ✅ Säkerställ att CSS importeras korrekt
   css: {
