@@ -8,10 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+dist
 .nitro
 .output
 .tanstack
 .coverage
+.netlify
 
 # Editor directories and files
 .vscode/*

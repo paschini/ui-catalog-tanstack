@@ -21,7 +21,6 @@ export default defineConfig({
   // ✅ Säkerställ att CSS importeras korrekt
   css: {
     modules: {
-      localsConvention: 'camelCase',
       generateScopedName: '[name]__[local]___[hash:base64:5]'
     },
     devSourcemap: true

@@ -10,8 +10,8 @@ export default defineConfig({
   css: {
     modules: {
       generateScopedName: '[name]__[local]___[hash:base64:5]'
-    },
-    devSourcemap: true
+    }
+    // devSourcemap: true
   },
   optimizeDeps: {
     include: ['@tanstack/react-query']
