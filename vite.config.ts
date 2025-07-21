@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     port: 3000
   },
-  plugins: [tsConfigPaths(), tanstackStart()],
+  plugins: [tsConfigPaths(), tanstackStart(), tanstackStart({ target: 'netlify' })],
   css: {
     modules: {
       generateScopedName: '[name]__[local]___[hash:base64:5]'
